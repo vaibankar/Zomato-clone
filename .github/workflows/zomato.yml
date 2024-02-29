@@ -40,7 +40,7 @@ jobs:
            path: ${{github.workspace}}/reports  
      
     - name: Store Artifact to Nexus
-      uses: ivoryma/nexus-artifact-uploader-action@v1
+      uses: ivoryma/nexus-artifact-uploader-action@v4
       with:
        nexus_url: ${{ secrets.NEXUS_URL }}
        repository_name: ${{ secrets.NEXUS_REPOSITORY }}
