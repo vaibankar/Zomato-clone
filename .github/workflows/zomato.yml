@@ -18,6 +18,8 @@ jobs:
         node-version: 16
     - run: npm install  
     - run: npm ci
+    - name: Build artifact
+      run: npm run build
     
     - name: SonarQube Scan
       uses: kitabisa/sonarqube-action@master
