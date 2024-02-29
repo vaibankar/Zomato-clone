@@ -39,10 +39,10 @@ jobs:
            name: Depcheck report
            path: ${{github.workspace}}/reports  
      
-    - name: Download artifact
-      uses: actions/download-artifact@v4
-      with:
-          name: my-artifact # Adjust this to match the name of your artifact
+   # - name: Download artifact
+    #  uses: actions/download-artifact@v4
+     # with:
+      #    name: my-artifact # Adjust this to match the name of your artifact
         
     - name: Publish to Nexus Artifactory
       env:
