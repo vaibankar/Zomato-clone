@@ -41,4 +41,4 @@ jobs:
      
     - name: Publish artifact to Nexus
       run: |
-        curl -v -u $NEXUS_USERNAME:$NEXUS_PASSWORD --upload-file ./package.json/artifact.jar $NEXUS_URL/repository/$NEXUS_REPOSITORY/artifact.jar
+        curl -v -u $NEXUS_USERNAME:$NEXUS_PASSWORD --upload-file ./path/to/artifact.jar $NEXUS_URL/repository/$NEXUS_REPOSITORY/path/to/upload/location/artifact.jar
