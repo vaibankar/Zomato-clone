@@ -39,13 +39,6 @@ jobs:
            name: Depcheck report
            path: ${{github.workspace}}/reports  
      
-    - name: Store Artifact to Nexus
-      uses: zomato/nexus-artifact-uploader-action@v4
-      with:
-       nexus_url: ${{ secrets.NEXUS_URL }}
-       repository_name: ${{ secrets.NEXUS_REPOSITORY }}
-       username: ${{ secrets.NEXUS_USERNAME }}
-       password: ${{ secrets.NEXUS_PASSWORD }}
-       file: dist/my-artifact.zip  # Example path to your built artifact
-       artifact_path: npm-packages/my-artifact.zip  # Example path within Nexus repository
-
+    - name: Publish artifact to Nexus
+      run: |
+        curl -v -u $NEXUS_USERNAME:$NEXUS_PASSWORD --upload-file ./package.json/artifact.jar $NEXUS_URL/repository/$NEXUS_REPOSITORY/artifact.jar
