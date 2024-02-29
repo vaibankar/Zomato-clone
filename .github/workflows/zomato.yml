@@ -39,16 +39,13 @@ jobs:
            name: Depcheck report
            path: ${{github.workspace}}/reports  
      
-    - name: Download artifact
-      uses: actions/download-artifact@v4
+    - name: Store Artifact to Nexus
+      uses: ivoryma/nexus-artifact-uploader-action@v1
       with:
-          name: zomato_clone@0.1.0 build # Adjust this to match the name of your artifact
-        
-    - name: Publish to Nexus Artifactory
-      env:
-          NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
-      run: |
-          # Use curl or any other tool to publish your artifact to Nexus Artifactory
-          # Example:
-          curl -v -u $NEXUS_USERNAME:$NEXUS_PASSWORD --upload-file zomato_clone@0.1.0 build https://nexus.example.com/repository/my-repo/zomato_clone@0.1.0 build 
+       nexus_url: ${{ secrets.NEXUS_URL }}
+       repository_name: ${{ secrets.NEXUS_REPOSITORY }}
+       username: ${{ secrets.NEXUS_USERNAME }}
+       password: ${{ secrets.NEXUS_PASSWORD }}
+       file: dist/my-artifact.zip  # Example path to your built artifact
+       artifact_path: npm-packages/my-artifact.zip  # Example path within Nexus repository
+
