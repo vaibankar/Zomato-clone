@@ -45,6 +45,5 @@ jobs:
     #        name: Depcheck report
     #        path: ${{github.workspace}}/reports  
      
-    # - name: Publish artifact to Nexus
-    #   run: |
-    #     curl -v -u $NEXUS_USERNAME:$NEXUS_PASSWORD --upload-file ./path/to/artifact.jar $NEXUS_URL/repository/$NEXUS_REPOSITORY/path/to/upload/location/artifact.jar
+    - name: Publish artifact to Nexus
+       curl -v -u $NEXUS_USERNAME:$NEXUS_PASSWORD --upload-file ./zomato.zip $NEXUS_URL/repository/$NEXUS_REPOSITORY/zomato.zip
